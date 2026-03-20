@@ -1,4 +1,4 @@
-name: Build Android APK (Gorakh Chat)
+name: Build Gorakh Chat APK (Cloud Only)
 
 on:
   push:
@@ -8,11 +8,11 @@ on:
 
 jobs:
   build_apk:
-    name: Build APK via Expo Prebuild
+    name: Build APK from scratch without Local Node
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout Code
+      - name: Checkout Logic Files
         uses: actions/checkout@v4
       
       - name: Setup Node.js
@@ -26,21 +26,32 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Install npm dependencies
-        run: npm install
-
-      - name: Generate Android Native Folder (Prebuild)
-        run: npx expo prebuild --platform android --clean
-
-      - name: Build local APK using Gradle
+      - name: Scaffold React Native App in Cloud
         run: |
-          cd android
+          echo "Initializing fresh Expo app in Cloud Server..."
+          npx -y create-expo-app@latest CloudApp --template blank-typescript
+          
+          echo "Merging our Custom Logic (Mesh, E2EE, Radar UI)..."
+          cp -r src CloudApp/
+          cp -f App.tsx CloudApp/
+          
+          cd CloudApp
+          
+          echo "Installing Dependencies (WatermelonDB, TweetNaCl)..."
+          npm install react-native-reanimated tweetnacl tweetnacl-util @nozbe/watermelondb react-native-permissions lottie-react-native
+          
+          echo "Generating Native Android Folders..."
+          npx expo prebuild --platform android --clean
+
+      - name: Compile APK via Android Gradle
+        run: |
+          cd CloudApp/android
           chmod +x gradlew
           ./gradlew assembleRelease
 
-      - name: Upload APK Artifact
+      - name: Upload Android APK
         uses: actions/upload-artifact@v4
         with:
           name: GorakhChat-APK
-          path: android/app/build/outputs/apk/release/app-release.apk
+          path: CloudApp/android/app/build/outputs/apk/release/app-release.apk
           retention-days: 7
