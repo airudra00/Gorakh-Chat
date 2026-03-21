@@ -27,13 +27,28 @@ class ConnectionManager {
     // Wake up the physical Bluetooth Antenna
     this.manager = new BleManager();
     
+    // Automatically force the Android System to prompt the user to turn on Bluetooth!
     const state = await this.manager.state();
     if (state !== 'PoweredOn') {
-      console.warn('[ConnectionManager] ⚠️ Bluetooth is physically turned off on phone!');
-      // Wait for it to turn on...
+      console.warn('[ConnectionManager] ⚠️ Bluetooth is off. Ordering OS to turn it on...');
+      try {
+        await this.manager.enable();
+      } catch (e) {
+        console.warn('[ConnectionManager] 🚨 User refused to let us turn on Bluetooth.');
+      }
     }
 
-    this.startScanning();
+    // This listener waits for the exact millisecond the Bluetooth chip gets power
+    // and instantly starts sweeping the area. No manual app restarts needed!
+    this.manager.onStateChange((newState) => {
+      if (newState === 'PoweredOn') {
+        this.startScanning();
+      } else {
+        console.log('[ConnectionManager] Bluetooth power lost. Pausing scan...');
+        this.manager?.stopDeviceScan();
+      }
+    }, true); // `true` fires it immediately with the current state too
+
     this.startAdvertising(); // Note: Emitting requires peripheral bridge integration 
 
     this.isInitialized = true;

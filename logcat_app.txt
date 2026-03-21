@@ -1,0 +1,191 @@
+--------- beginning of main
+03-21 16:28:32.421  9006  9006 W zygote64: Activation of cgroup controller +memory failed in path /sys/fs/cgroup/apps/uid_10701: Invalid argument
+03-21 16:28:32.427  9006  9006 I ra00.gorakhchat: Using CollectorTypeCC GC.
+03-21 16:28:32.431  9006  9006 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+03-21 16:28:32.436  9006  9006 D CompatChangeReporter: Compat change id reported: 242716250; UID 10701; state: ENABLED
+03-21 16:28:32.441  9006  9006 D nativeloader: Configuring clns-9 for other apk /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64:/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand:/data/user/0/com.airudra00.gorakhchat
+03-21 16:28:32.443  9006  9006 I ra00.gorakhchat: AssetManager2(0xb4000072832f6258) locale list changing from [] to [en-US]
+03-21 16:28:32.446  9006  9006 V GraphicsEnvironment: Currently set values for:
+03-21 16:28:32.446  9006  9006 V GraphicsEnvironment:   angle_gl_driver_selection_pkgs=[com.android.angle, com.linecorp.b612.android, com.campmobile.snow, com.google.android.apps.tachyon]
+03-21 16:28:32.446  9006  9006 V GraphicsEnvironment:   angle_gl_driver_selection_values=[angle, native, native, native]
+03-21 16:28:32.446  9006  9006 V GraphicsEnvironment: com.airudra00.gorakhchat is not listed in per-application setting
+03-21 16:28:32.446  9006  9006 V GraphicsEnvironment: ANGLE allowlist from config: 
+03-21 16:28:32.446  9006  9006 V GraphicsEnvironment: com.airudra00.gorakhchat is not listed in ANGLE allowlist or settings, returning default
+03-21 16:28:32.446  9006  9006 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+03-21 16:28:32.461  9006  9006 V SoLoader: Init SoLoader delegate
+--------- beginning of system
+03-21 16:28:32.466  9006  9019 I DisplayManager: Choreographer implicitly registered for the refresh rate.
+03-21 16:28:32.467  9006  9006 I ra00.gorakhchat: AssetManager2(0xb4000072832f8e18) locale list changing from [] to [en-US]
+03-21 16:28:32.467  9006  9019 I AdrenoGLES-0: QUALCOMM build                   : 5c44054b8b, I064dd7d485
+03-21 16:28:32.467  9006  9019 I AdrenoGLES-0: Build Date                       : 09/12/24
+03-21 16:28:32.467  9006  9019 I AdrenoGLES-0: OpenGL ES Shader Compiler Version: E031.47.14.01
+03-21 16:28:32.467  9006  9019 I AdrenoGLES-0: Local Branch                     : 
+03-21 16:28:32.467  9006  9019 I AdrenoGLES-0: Remote Branch                    : refs/tags/AU_LINUX_ANDROID_LA.VENDOR.12.3.11.00.00.934.442
+03-21 16:28:32.467  9006  9019 I AdrenoGLES-0: Remote Branch                    : NONE
+03-21 16:28:32.467  9006  9019 I AdrenoGLES-0: Reconstruct Branch               : NOTHING
+03-21 16:28:32.467  9006  9019 I AdrenoGLES-0: Build Config                     : S P 12.1.6 AArch64
+03-21 16:28:32.467  9006  9019 I AdrenoGLES-0: Driver Path                      : /vendor/lib64/egl/libGLESv2_adreno.so
+03-21 16:28:32.467  9006  9019 I AdrenoGLES-0: Driver Version                   : 0797.0
+03-21 16:28:32.467  9006  9019 I AdrenoGLES-0: Process Name                     : com.airudra00.gorakhchat
+03-21 16:28:32.468  9006  9019 E cutils-trace: Error opening trace file: No such file or directory (2)
+03-21 16:28:32.470  9006  9019 I DMABUFHEAPS: Using : Non-legacy ION heaps
+03-21 16:28:32.470  9006  9019 E DMABUFHEAPS: No ion heap of name ion_system_heap exists
+03-21 16:28:32.470  9006  9019 E DMABUFHEAPS: No ion heap of name ion_system_heap exists
+03-21 16:28:32.471  9006  9019 I AdrenoGLES-0: PFP: 0x016ee190, ME: 0x00000000
+03-21 16:28:32.471  9006  9006 D AppCompatDelegate: Checking for metadata for AppLocalesMetadataHolderService : Service not found
+03-21 16:28:32.471  9006  9006 I ra00.gorakhchat: AssetManager2(0xb4000072832f4958) locale list changing from [] to [en-US]
+03-21 16:28:32.474  9006  9006 E ashmem  : Pinning is deprecated since Android Q. Please use trim or other methods.
+03-21 16:28:32.483  9006  9006 V SoLoader: libhermes.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.485  9006  9006 V SoLoader: libjsi.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.486  9006  9006 V SoLoader: libfolly_runtime.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.486  9006  9006 V SoLoader: libglog.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.487  9006  9006 V SoLoader: libm.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.487  9006  9006 V SoLoader: libm.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.487  9006  9006 D SoLoader: libm.so found on /system/lib64
+03-21 16:28:32.487  9006  9006 D SoLoader: libm.so loaded implicitly
+03-21 16:28:32.487  9006  9006 V SoLoader: libc++_shared.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.487  9006  9006 V SoLoader: libc.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.487  9006  9006 V SoLoader: libc.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.487  9006  9006 D SoLoader: libc.so found on /system/lib64
+03-21 16:28:32.487  9006  9006 D SoLoader: libc.so loaded implicitly
+03-21 16:28:32.487  9006  9006 V SoLoader: libdl.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.487  9006  9006 V SoLoader: libdl.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.487  9006  9006 D SoLoader: libdl.so found on /system/lib64
+03-21 16:28:32.487  9006  9006 D SoLoader: libdl.so loaded implicitly
+03-21 16:28:32.489  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libc++_shared.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.489  9006  9006 D SoLoader: libc++_shared.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.489  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libglog.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.489  9006  9006 D SoLoader: libglog.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.490  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libfolly_runtime.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.490  9006  9006 D SoLoader: libfolly_runtime.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.491  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libjsi.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.491  9006  9006 D SoLoader: libjsi.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.491  9006  9006 V SoLoader: libfbjni.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.492  9006  9006 V SoLoader: libandroid.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.492  9006  9006 V SoLoader: libandroid.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.492  9006  9006 D SoLoader: libandroid.so found on /system/lib64
+03-21 16:28:32.492  9006  9006 D SoLoader: libandroid.so loaded implicitly
+03-21 16:28:32.492  9006  9006 V SoLoader: liblog.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.492  9006  9006 V SoLoader: liblog.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.492  9006  9006 D SoLoader: liblog.so found on /system/lib64
+03-21 16:28:32.492  9006  9006 D SoLoader: liblog.so loaded implicitly
+03-21 16:28:32.492  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libfbjni.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.493  9006  9006 D SoLoader: libfbjni.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.493  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libhermes.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.493  9006  9006 D SoLoader: libhermes.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.494  9006  9006 V SoLoader: libhermes_executor.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.496  9006  9006 V SoLoader: libreactnativejni.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.498  9006  9006 V SoLoader: libreact_render_runtimescheduler.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.500  9006  9006 V SoLoader: libreact_render_core.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.501  9006  9006 V SoLoader: liblogger.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.502  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/liblogger.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.502  9006  9006 D SoLoader: liblogger.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.502  9006  9006 V SoLoader: libreact_config.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.503  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libreact_config.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.503  9006  9006 D SoLoader: libreact_config.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.503  9006  9006 V SoLoader: libreact_render_debug.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.504  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libreact_render_debug.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.504  9006  9006 D SoLoader: libreact_render_debug.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.505  9006  9006 V SoLoader: libreact_render_graphics.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.505  9006  9006 V SoLoader: libfb.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.507  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libfb.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.507  9006  9006 D SoLoader: libfb.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.507  9006  9006 V SoLoader: libreact_utils.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.508  9006  9006 V SoLoader: libglog_init.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.509  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libglog_init.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.509  9006  9006 D SoLoader: libglog_init.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.509  9006  9006 V SoLoader: libreact_debug.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.510  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libreact_debug.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.510  9006  9006 D SoLoader: libreact_debug.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.511  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libreact_utils.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.511  9006  9006 D SoLoader: libreact_utils.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.512  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libreact_render_graphics.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.512  9006  9006 D SoLoader: libreact_render_graphics.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.512  9006  9006 V SoLoader: libreact_render_mapbuffer.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.513  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libreact_render_mapbuffer.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.513  9006  9006 D SoLoader: libreact_render_mapbuffer.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.514  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libreact_render_core.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.515  9006  9006 D SoLoader: libreact_render_core.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.515  9006  9006 V SoLoader: libruntimeexecutor.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.516  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libruntimeexecutor.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.516  9006  9006 D SoLoader: libruntimeexecutor.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.517  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libreact_render_runtimescheduler.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.517  9006  9006 D SoLoader: libreact_render_runtimescheduler.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.517  9006  9006 V SoLoader: libyoga.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.518  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libyoga.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.519  9006  9006 D SoLoader: libyoga.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.519  9006  9006 V SoLoader: libreactperfloggerjni.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.520  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libreactperfloggerjni.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.520  9006  9006 D SoLoader: libreactperfloggerjni.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.520  9006  9006 V SoLoader: libjsinspector.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.521  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libjsinspector.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.521  9006  9006 D SoLoader: libjsinspector.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.521  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libreactnativejni.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.522  9006  9006 D SoLoader: libreactnativejni.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.523  9006  9006 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libhermes_executor.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.523  9006  9006 D SoLoader: libhermes_executor.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.525  9006  9006 D DesktopModeFlags: Toggle override initialized to: OVERRIDE_UNSET
+03-21 16:28:32.529  9006  9006 I ContentCaptureHelper: Setting logging level to OFF
+03-21 16:28:32.542  9006  9021 I ExpoModulesCore: ✅ AppContext was initialized
+03-21 16:28:32.543  9006  9027 E perf_hint: createSessionUsingConfig: PerformanceHint cannot create session. PowerHintSessions are not supported!
+03-21 16:28:32.547  9006  9021 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libwatermelondb-jsi.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.553  9006  9037 I Gralloc4: Adding additional valid usage bits: 0x8202000
+03-21 16:28:32.560  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.drawer.ReactDrawerLayoutManager
+03-21 16:28:32.562  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.uimanager.LayoutShadowNode
+03-21 16:28:32.563  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.scroll.ReactHorizontalScrollViewManager
+03-21 16:28:32.564  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.scroll.ReactHorizontalScrollContainerViewManager
+03-21 16:28:32.565  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.progressbar.ReactProgressBarViewManager
+03-21 16:28:32.565  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.progressbar.ProgressBarShadowNode
+03-21 16:28:32.566  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.scroll.ReactScrollViewManager
+03-21 16:28:32.567  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.switchview.ReactSwitchManager
+03-21 16:28:32.568  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.switchview.ReactSwitchManager$ReactSwitchShadowNode
+03-21 16:28:32.568  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.swiperefresh.SwipeRefreshLayoutManager
+03-21 16:28:32.569  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.frescosupport.FrescoBasedReactTextInlineImageViewManager
+03-21 16:28:32.569  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.frescosupport.FrescoBasedReactTextInlineImageShadowNode
+03-21 16:28:32.569  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.image.ReactImageManager
+03-21 16:28:32.570  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.modal.ReactModalHostManager
+03-21 16:28:32.571  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.modal.ModalHostShadowNode
+03-21 16:28:32.571  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.ReactRawTextManager
+03-21 16:28:32.571  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.ReactRawTextShadowNode
+03-21 16:28:32.572  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.textinput.ReactTextInputManager
+03-21 16:28:32.573  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.textinput.ReactTextInputShadowNode
+03-21 16:28:32.573  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.ReactTextViewManager
+03-21 16:28:32.573  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.ReactTextShadowNode
+03-21 16:28:32.574  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.view.ReactViewManager
+03-21 16:28:32.574  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.ReactVirtualTextViewManager
+03-21 16:28:32.574  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.text.ReactVirtualTextShadowNode
+03-21 16:28:32.574  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.facebook.react.views.unimplementedview.ReactUnimplementedViewManager
+03-21 16:28:32.575  9006  9034 W unknown:ViewManagerPropertyUpdater: Could not find generated setter for class com.airbnb.android.react.lottie.LottieAnimationViewManager
+03-21 16:28:32.602  9006  9033 V SoLoader: libexpo-modules-core.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.603  9006  9006 D InsetsController: hide(ime(), fromIme=false)
+03-21 16:28:32.604  9006  9006 I ImeTracker: com.airudra00.gorakhchat:635264c3: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+03-21 16:28:32.604  9006  9033 V SoLoader: libreact_nativemodule_core.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.607  9006  9033 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libreact_nativemodule_core.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.607  9006  9033 D SoLoader: libreact_nativemodule_core.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.609  9006  9033 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libexpo-modules-core.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.609  9006  9033 D SoLoader: libexpo-modules-core.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.610  9006  9033 V SoLoader: libturbomodulejsijni.so not found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/lib/arm64
+03-21 16:28:32.615  9006  9033 D nativeloader: Load /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a/libturbomodulejsijni.so using class loader ns clns-9 (caller=/data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk): ok
+03-21 16:28:32.615  9006  9033 D SoLoader: libturbomodulejsijni.so found on /data/app/~~hhbXwO-Ly9LKezUb9ku6mQ==/com.airudra00.gorakhchat-6hNqgReMT7K75DbK1Hn6wA==/base.apk!/lib/arm64-v8a
+03-21 16:28:32.617  9006  9033 I ExpoModulesCore: ✅ JSI interop was installed
+03-21 16:28:32.620  9006  9033 D CompatChangeReporter: Compat change id reported: 263076149; UID 10701; state: ENABLED
+03-21 16:28:32.623  9006  9033 I ExpoModulesCore: ✅ Constants were exported
+03-21 16:28:32.633  9006  9033 I ReactNativeJS: Running "main
+03-21 16:28:32.651  9006  9006 W Choreographer: Frame time is 0.014973 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+03-21 16:28:32.664  9006  9033 I ReactNativeJS: 'My Gorakh Chat Identity (Public Key):', 'LmkeK6JXliAc3XkeDdv8hVyvc0hyWFrO9g3DzpQifwA='
+03-21 16:28:32.664  9006  9033 I ReactNativeJS: [ConnectionManager] Booting Native BLE Hardware Engine...
+03-21 16:28:32.721  9006  9006 W Choreographer: Frame time is 0.011895 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+03-21 16:28:33.633  9006  9033 W ReactNativeJS: [ConnectionManager] ⚠️ Bluetooth is physically turned off on phone!
+03-21 16:28:33.633  9006  9033 I ReactNativeJS: [Mesh] 🔭 Raw Hardware is officially sweeping for Gorakh Chat Users!
+03-21 16:28:33.633  9006  9033 I ReactNativeJS: [Mesh] 📡 (Advertising Identity to nearby hardware)
+03-21 16:28:33.636  9006  9033 I ReactNativeJS: '[Mesh.Scanner] ⚠️ Scan error:', 'BluetoothLE is powered off'
+03-21 16:28:33.637  9006  9006 D InsetsController: hide(ime(), fromIme=false)
+03-21 16:28:33.637  9006  9006 I ImeTracker: com.airudra00.gorakhchat:e9c84229: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+03-21 16:28:35.869  9006  9034 D CompatChangeReporter: Compat change id reported: 289878283; UID 10701; state: ENABLED
+03-21 16:28:40.897  9006  9006 W Choreographer: Frame time is 0.010805 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+03-21 16:28:44.726  9006  9040 D BluetoothAdapter: onBluetoothOn
+03-21 16:28:50.695  9006  9006 D InsetsController: hide(ime(), fromIme=false)
+03-21 16:28:50.695  9006  9006 I ImeTracker: com.airudra00.gorakhchat:43ed3647: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+03-21 16:28:50.742  9006  9006 W Choreographer: Frame time is 0.006709 ms in the future!  Check that graphics HAL is generating vsync timestamps using the correct timebase.
+03-21 16:29:48.541  9006  9006 D InsetsController: hide(ime(), fromIme=false)
+03-21 16:29:48.541  9006  9006 I ImeTracker: com.airudra00.gorakhchat:ebc09c76: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN

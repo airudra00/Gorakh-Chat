@@ -1,0 +1,246 @@
+--------- beginning of main
+03-21 16:28:52.478  1181  7026 E QSEECOMAPI: Error::Cannot open the file /vendor/firmware_mnt/image/widevine.mdt errno = 2
+03-21 16:28:52.478  1181  7026 E QSEECOMAPI: Error::Loading image failed with ret = -1
+03-21 16:28:52.509   793   807 E QC-time-services: Receive Passed == base = 13, unit = 1, operation = 2, result = 0
+03-21 16:28:52.509  1086  1299 E QC-time-services: Daemon: Time-services: Waiting to acceptconnection
+03-21 16:28:52.509  1086  1299 E QC-time-services: Daemon: Time-services: Waiting to acceptconnection
+03-21 16:28:52.529  1181  7026 E QCOM-OEMCrypto: Error at trusted_app_is_keybox_or_oemcert_valid : 735
+03-21 16:28:52.529  1181  7026 E QCOM-OEMCrypto: TA Result : 17 OEMCryptoResult : 10
+03-21 16:28:52.529  1181  7026 E QCOM-OEMCrypto: 	 i_widevine_oemcrypto_is_keybox_or_oemcert_valid : 914
+03-21 16:28:52.529  1181  7026 E QCOM-OEMCrypto: Error at _oecc05 : 637
+03-21 16:28:52.537  1181  7026 E WVCdm   : [wv_content_decryption_module.cpp(389):GetMetrics] Cdm Identifier not found
+03-21 16:28:52.538  1181  7026 E WVCdm   : [wv_content_decryption_module.cpp(449):CloseCdm] Cdm Identifier not found
+03-21 16:28:52.538  1181  7026 E WVCdm   : Failed to close cdm. status 12
+03-21 16:28:56.682  9222  9486 E Forest_null: could not get any valid access key from remote settings
+03-21 16:28:56.699  9222  9700 E Forest_GeckoFetcher: download failed with waitGeckoUpdate=false ,channel = tiktok_webview_hook,bundle = hook.js
+03-21 16:28:56.699  9222  9700 E Forest_GeckoFetcher: java.lang.Throwable: invalid channel
+03-21 16:28:56.699  9222  9700 E Forest_GeckoFetcher: 	at X.0yC3.LJIIIIZZ(SourceFile:33554554)
+03-21 16:28:56.699  9222  9700 E Forest_GeckoFetcher: 	at X.0ema.LIZ(SourceFile:376)
+03-21 16:28:56.699  9222  9700 E Forest_GeckoFetcher: 	at X.0ema.run(SourceFile:5)
+03-21 16:28:56.699  9222  9700 E Forest_GeckoFetcher: 	at Y.AObjectS360S0100000_32.invoke$1(SourceFile:16777222)
+03-21 16:28:56.699  9222  9700 E Forest_GeckoFetcher: 	at Y.AObjectS360S0100000_32.invoke(Unknown Source:197)
+03-21 16:28:56.699  9222  9700 E Forest_GeckoFetcher: 	at X.13OB.invoke(SourceFile:4)
+03-21 16:28:56.699  9222  9700 E Forest_GeckoFetcher: 	at X.13OG.LIZ(SourceFile:50331890)
+03-21 16:28:56.699  9222  9700 E Forest_GeckoFetcher: 	at X.13O9.LIZJ(SourceFile:86)
+03-21 16:28:56.699  9222  9700 E Forest_GeckoFetcher: 	at X.13O9.run(SourceFile:0)
+03-21 16:28:56.699  9222  9700 E Forest_GeckoFetcher: 	at X.0QSR.run(SourceFile:13)
+03-21 16:28:56.699  9222  9700 E Forest_GeckoFetcher: 	at X.0QSU.run(SourceFile:2)
+03-21 16:28:56.699  9222  9700 E Forest_GeckoFetcher: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1156)
+03-21 16:28:56.699  9222  9700 E Forest_GeckoFetcher: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:651)
+03-21 16:28:56.699  9222  9700 E Forest_GeckoFetcher: 	at X.0gFQ.run(SourceFile:9)
+03-21 16:28:56.699  9222  9700 E Forest_GeckoFetcher: 	at java.lang.Thread.run(Thread.java:1119)
+03-21 16:28:56.699  9222  9700 E Forest_GeckoFetcher: 	at com.bytedance.bpea.transmit.delegate.BPEAThread.com_bytedance_bpea_transmit_delegate_BPEAThread__run$___twin___(SourceFile:9)
+03-21 16:28:56.699  9222  9700 E Forest_GeckoFetcher: 	at com.bytedance.bpea.transmit.delegate.BPEAThread.com_bytedance_bpea_transmit_delegate_BPEAThread_com_ss_android_ugc_aweme_lancet_RunnableGuardLancet_run(SourceFile:16777216)
+03-21 16:28:56.699  9222  9700 E Forest_GeckoFetcher: 	at com.bytedance.bpea.transmit.delegate.BPEAThread.run(Unknown Source:0)
+03-21 16:28:56.859  1205  1205 E Finsky  : [2] bnus failed GRPC call!
+03-21 16:28:56.859  1205  1205 E Finsky  : io.grpc.StatusException: UNAVAILABLE
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at byft.hl(PG:11)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.f(PG:98)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.l(PG:23)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.hl(PG:8)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at ppv.run(PG:81)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvv.e(PG:17)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvv.hl(PG:8)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at ppv.run(PG:214)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blva.run(PG:719)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvi.run(PG:3)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvj.run(PG:64)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bktu.execute(PG:1)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvl.execute(PG:3)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvk.execute(PG:34)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvi.execute(PG:11)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvj.hl(PG:12)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.f(PG:98)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.l(PG:23)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.hl(PG:8)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at ppv.run(PG:81)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvv.e(PG:17)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvv.hl(PG:8)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at ppv.run(PG:214)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blva.run(PG:719)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvi.run(PG:3)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvj.run(PG:64)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bktu.execute(PG:1)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvl.execute(PG:3)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvk.execute(PG:34)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvi.execute(PG:11)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvj.hl(PG:12)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.f(PG:98)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.l(PG:23)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.hl(PG:8)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at ppv.run(PG:81)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvv.e(PG:17)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvv.hl(PG:8)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at ppv.run(PG:214)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blva.run(PG:719)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvi.run(PG:3)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvj.run(PG:64)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bktu.execute(PG:1)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvl.execute(PG:3)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvk.execute(PG:34)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvi.execute(PG:11)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvj.hl(PG:12)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.f(PG:98)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.l(PG:23)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.hl(PG:8)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at ppv.run(PG:81)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvv.e(PG:17)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvv.hl(PG:8)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at ppv.run(PG:214)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blva.run(PG:719)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvi.run(PG:3)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvj.run(PG:64)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bktu.execute(PG:1)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvl.execute(PG:3)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvk.execute(PG:34)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvi.execute(PG:11)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvj.hl(PG:12)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.f(PG:98)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.l(PG:23)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.hl(PG:8)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at ppv.run(PG:81)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvv.e(PG:17)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvv.hl(PG:8)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at ppv.run(PG:214)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blva.run(PG:719)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvi.run(PG:3)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvj.run(PG:64)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bktu.execute(PG:1)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvl.execute(PG:3)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvk.execute(PG:34)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvi.execute(PG:11)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvj.hl(PG:12)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.f(PG:98)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.l(PG:23)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.hl(PG:8)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at ppv.run(PG:81)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvv.e(PG:17)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvv.hl(PG:8)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at ppv.run(PG:214)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blva.run(PG:719)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvi.run(PG:3)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvj.run(PG:64)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bktu.execute(PG:1)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvl.execute(PG:3)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvk.execute(PG:34)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvi.execute(PG:11)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvj.hl(PG:12)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.f(PG:98)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.l(PG:23)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.hl(PG:8)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at ppv.run(PG:81)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvv.e(PG:17)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvv.hl(PG:8)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at ppv.run(PG:214)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blva.run(PG:719)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvi.run(PG:3)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvj.run(PG:64)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bktu.execute(PG:1)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvl.execute(PG:3)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvk.execute(PG:34)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvi.execute(PG:11)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvj.hl(PG:12)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.f(PG:98)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.l(PG:23)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.hl(PG:8)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at ppv.run(PG:81)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvv.e(PG:17)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvv.hl(PG:8)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at ppv.run(PG:214)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blva.run(PG:719)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvi.run(PG:3)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvj.run(PG:64)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bktu.execute(PG:1)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvl.execute(PG:3)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvk.execute(PG:34)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvi.execute(PG:11)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvj.hl(PG:12)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.f(PG:98)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.l(PG:23)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvp.hl(PG:8)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at ppv.run(PG:81)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bjau.run(PG:17)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvv.e(PG:32)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvv.hl(PG:8)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at ppv.run(PG:214)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blva.run(PG:719)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvi.run(PG:3)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvj.run(PG:64)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bktu.execute(PG:1)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvl.execute(PG:3)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bkvk.execute(PG:34)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvi.execute(PG:11)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at blvj.hl(PG:12)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bxxn.h(PG:1)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bxxk.a(PG:28)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bxyb.run(PG:7)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bydw.run(PG:12)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1156)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:651)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at uzl.run(PG:618)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at java.lang.Thread.run(Thread.java:1119)
+03-21 16:28:56.859  1205  1205 E Finsky  : Caused by: org.chromium.net.impl.AndroidNetworkExceptionWrapper: Exception in BidirectionalStream: net::ERR_INTERNET_DISCONNECTED, ErrorCode=2, InternalErrorCode=-106, Retryable=false
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at org.chromium.base.MemoryPressureListener.b(PG:36)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bzvg.onFailed(PG:5)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at android.net.http.BidirectionalStreamCallbackWrapper.onFailed(BidirectionalStreamCallbackWrapper.java:130)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at android.net.connectivity.org.chromium.net.impl.VersionSafeCallbacks$BidirectionalStreamCallback.onFailed(VersionSafeCallbacks.java:140)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at android.net.connectivity.org.chromium.net.impl.CronetBidirectionalStream.failWithExceptionOnExecutor(CronetBidirectionalStream.java:1146)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at android.net.connectivity.org.chromium.net.impl.CronetBidirectionalStream.-$$Nest$mfailWithExceptionOnExecutor(Unknown Source:0)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at android.net.connectivity.org.chromium.net.impl.CronetBidirectionalStream$5.run(CronetBidirectionalStream.java:1171)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at android.net.connectivity.org.chromium.net.impl.CronetBidirectionalStream.lambda$postTaskToExecutor$0(CronetBidirectionalStream.java:1075)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at android.net.connectivity.org.chromium.net.impl.CronetBidirectionalStream$$ExternalSyntheticLambda1.run(D8$$SyntheticClass:0)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at bktu.execute(PG:1)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at android.net.connectivity.org.chromium.net.impl.CronetBidirectionalStream.postTaskToExecutor(CronetBidirectionalStream.java:1068)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at android.net.connectivity.org.chromium.net.impl.CronetBidirectionalStream.failWithException(CronetBidirectionalStream.java:1167)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at android.net.connectivity.org.chromium.net.impl.CronetBidirectionalStream.onError(CronetBidirectionalStream.java:749)
+03-21 16:28:56.859  1205  1205 E Finsky  : Caused by: android.net.http.NetworkExceptionWrapper: Exception in BidirectionalStream: net::ERR_INTERNET_DISCONNECTED, ErrorCode=2, InternalErrorCode=-106, Retryable=false
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at android.net.http.CronetExceptionTranslationUtils.translateException(CronetExceptionTranslationUtils.java:45)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	at android.net.http.BidirectionalStreamCallbackWrapper.onFailed(BidirectionalStreamCallbackWrapper.java:129)
+03-21 16:28:56.859  1205  1205 E Finsky  : 	... 10 more
+03-21 16:28:56.859  1205  1205 E Finsky  : Caused by: android.net.connectivity.org.chromium.net.impl.BidirectionalStreamNetworkException: Exception in BidirectionalStream: net::ERR_INTERNET_DISCONNECTED, ErrorCode=2, InternalErrorCode=-106, Retryable=false
+03-21 16:28:56.859  1205  1205 E Finsky  : 	... 1 more
+03-21 16:29:08.506  2205  2741 E WifiScoringParams: Invalid frequency(-1), using 5G as default rssi array
+03-21 16:29:09.098  2205  2745 E WifiScanningService: wifi driver loaded received while already loaded
+03-21 16:29:09.099  1198  1198 E WifiHAL : wifi_get_usable_channels: Error -3 waiting for response.
+03-21 16:29:09.100  2205  2741 E WifiChipAidlImpl: getUsableChannels failed with service-specific exception: android.os.ServiceSpecificException:  (code 4)
+03-21 16:29:09.101  2205  2741 E ApConfigUtil: Malformed channel value detected: java.lang.NumberFormatException: For input string: ""
+03-21 16:29:09.102  1198  1198 E WifiHAL : wifi_get_usable_channels: Error -3 waiting for response.
+03-21 16:29:09.102  2205  2741 E WifiChipAidlImpl: getUsableChannels failed with service-specific exception: android.os.ServiceSpecificException:  (code 4)
+03-21 16:29:09.104  2205  2741 E ApConfigUtil: Malformed channel value detected: java.lang.NumberFormatException: For input string: ""
+03-21 16:29:09.699  1198  1198 E WifiHAL : wifi_get_cached_scan_results: Wifi Cached Scan Result not supported by driver
+03-21 16:29:09.700  2205  2741 E WifiStaIfaceAidlImpl: getCachedScanData failed with service-specific exception: android.os.ServiceSpecificException:  (code 4)
+03-21 16:29:16.877 20466 20872 E PlayCommon: [176] Failed to connect to server for log upload.
+03-21 16:29:23.620  1198  1198 E WifiHAL : wifi_get_cached_scan_results: Wifi Cached Scan Result not supported by driver
+03-21 16:29:23.620  2205  2741 E WifiStaIfaceAidlImpl: getCachedScanData failed with service-specific exception: android.os.ServiceSpecificException:  (code 4)
+03-21 16:29:45.931  1195  2783 E android.hardware.usb@1.0-service: uevent received SUBSYSTEM=dual_role_usb
+03-21 16:29:46.402  1198  1198 E WifiHAL : wifi_get_cached_scan_results: Wifi Cached Scan Result not supported by driver
+03-21 16:29:46.403  2205  2741 E WifiStaIfaceAidlImpl: getCachedScanData failed with service-specific exception: android.os.ServiceSpecificException:  (code 4)
+03-21 16:29:46.432  2862  2906 E perf_hint: createSessionUsingConfig: PerformanceHint cannot create session. PowerHintSessions are not supported!
+03-21 16:29:46.441   825  2777 E android.system.suspend-service: Error reading wakeup82/name: No such device
+03-21 16:29:46.442   825  2777 E android.system.suspend-service: Closed the FD.: No such device
+03-21 16:29:46.442   825  2777 E android.system.suspend-service: Error reading wakeup82/active_count: No such device
+03-21 16:29:46.442   825  2777 E android.system.suspend-service: Closed the FD.: No such device
+03-21 16:29:46.442   825  2777 E android.system.suspend-service: Error reading wakeup82/last_change_ms: No such device
+03-21 16:29:46.442   825  2777 E android.system.suspend-service: Closed the FD.: No such device
+03-21 16:29:46.442   825  2777 E android.system.suspend-service: Error reading wakeup82/max_time_ms: No such device
+03-21 16:29:46.442   825  2777 E android.system.suspend-service: Closed the FD.: No such device
+03-21 16:29:46.442   825  2777 E android.system.suspend-service: Error reading wakeup82/total_time_ms: No such device
+03-21 16:29:46.442   825  2777 E android.system.suspend-service: Closed the FD.: No such device
+03-21 16:29:46.442   825  2777 E android.system.suspend-service: Error reading wakeup82/active_time_ms: No such device
+03-21 16:29:46.442   825  2777 E android.system.suspend-service: Closed the FD.: No such device
+03-21 16:29:46.442   825  2777 E android.system.suspend-service: Error reading wakeup82/event_count: No such device
+03-21 16:29:46.442   825  2777 E android.system.suspend-service: Closed the FD.: No such device
+03-21 16:29:46.442   825  2777 E android.system.suspend-service: Error reading wakeup82/expire_count: No such device
+03-21 16:29:46.442   825  2777 E android.system.suspend-service: Closed the FD.: No such device
+03-21 16:29:46.442   825  2777 E android.system.suspend-service: Error reading wakeup82/prevent_suspend_time_ms: No such device
+03-21 16:29:46.442   825  2777 E android.system.suspend-service: Closed the FD.: No such device
+03-21 16:29:46.442   825  2777 E android.system.suspend-service: Error reading wakeup82/wakeup_count: No such device
+03-21 16:29:46.442   825  2777 E android.system.suspend-service: Closed the FD.: No such device
+03-21 16:29:47.150  1195  2783 E android.hardware.usb@1.0-service: uevent received SUBSYSTEM=dual_role_usb
+03-21 16:29:47.453  2862  2906 E perf_hint: createSessionUsingConfig: PerformanceHint cannot create session. PowerHintSessions are not supported!
+03-21 16:29:48.336  1195  2783 E android.hardware.usb@1.0-service: uevent received SUBSYSTEM=dual_role_usb
+03-21 16:29:48.512  2205  2741 E WifiScoringParams: Invalid frequency(-1), using 5G as default rssi array
+03-21 16:29:49.522  1195  2783 E android.hardware.usb@1.0-service: uevent received SUBSYSTEM=dual_role_usb
+03-21 16:29:49.664  1198  1198 E WifiHAL : wifi_get_cached_scan_results: Wifi Cached Scan Result not supported by driver
+03-21 16:29:49.665  2205  2741 E WifiStaIfaceAidlImpl: getCachedScanData failed with service-specific exception: android.os.ServiceSpecificException:  (code 4)
+03-21 16:29:50.022  1195  2783 E android.hardware.usb@1.0-service: uevent received SUBSYSTEM=dual_role_usb
