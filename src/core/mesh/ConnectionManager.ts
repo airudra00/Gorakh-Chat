@@ -2,7 +2,7 @@ import { Platform, PermissionsAndroid } from 'react-native';
 import * as Device from 'expo-device';
 import { BleManager, ScanMode } from 'react-native-ble-plx';
 import { Subject } from 'rxjs';
-import { encodeBase64, decodeUTF8 } from '../crypto/E2EEProtocol';
+import { encodeBase64, encodeUTF8 } from '../crypto/E2EEProtocol';
 import WiFiDirectManager from './WiFiDirectManager';
 import BackgroundSweeper from './BackgroundSweeper';
 
@@ -155,8 +155,8 @@ class ConnectionManager {
       await device.discoverAllServicesAndCharacteristics();
       
       // 3. Convert our text payload into a raw Base64 physical byte stream
-      // We use our pure mathematical custom Base64 encoder to avoid NodeJS crashes tracking arrays
-      const base64Data = encodeBase64(decodeUTF8(payload));
+      // We encode the string to UTF8 bytes, then convert bytes to Base64
+      const base64Data = encodeBase64(encodeUTF8(payload));
       
       // 4. Force-Write the payload directly into the other phone's memory chip
       await this.manager.writeCharacteristicWithResponseForDevice(
