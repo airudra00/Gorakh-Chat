@@ -1,4 +1,4 @@
-import './polyfill';
+import 'react-native-get-random-values';
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, SafeAreaView, StatusBar } from 'react-native';
 // Reanimated & Lottie could be used for advanced mesh UI animations here
