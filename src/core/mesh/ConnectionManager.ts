@@ -3,9 +3,11 @@ import * as Device from 'expo-device';
 import { BleManager, ScanMode } from 'react-native-ble-plx';
 import { Subject } from 'rxjs';
 
+const GORAKH_CHAT_UUID = '00006084-0000-1000-8000-00805F9B34FB';
+
 export interface MeshNode {
   id: string;   // Hardware Mac Address / Local ID
-  publicKey?: string; // Gorakh Identity
+  publicKey: string | null; // Gorakh Identity
   rssi: number | null; // Signal Strength
 }
 
@@ -80,25 +82,30 @@ class ConnectionManager {
   }
 
   private startScanning() {
-    if (!this.manager) return;
-    console.log('[Mesh] 🔭 Raw Hardware is officially sweeping for Gorakh Chat Users!');
+    console.log('[Mesh] 🔭 Raw Hardware is strictly sweeping for Gorakh Chat Service UUIDs!');
     
-    // We scan specifically for our Gorakh App signature or any BLE device nearby initially
-    this.manager.startDeviceScan(null, { scanMode: ScanMode.LowLatency }, (error, device) => {
-      if (error) {
-        console.log('[Mesh.Scanner] ⚠️ Scan error:', error.message);
-        return;
+    // We pass the exact Service UUID to completely blind the radar to all other 500+ trash devices (TVs, Earbuds)
+    this.manager?.startDeviceScan(
+      [GORAKH_CHAT_UUID], 
+      { allowDuplicates: false }, 
+      (error, device) => {
+        if (error) {
+          console.error('[Mesh.Scanner] ⚠️ Scan error:', error.message);
+          return;
+        }
+
+        if (device) {
+          // Because we filtered by UUID, ANY device that hits this block is guaranteed to be a Gorakh Phone!
+          console.log(`[Mesh.Scanner] 📡 Intercepted Gorakh Device: ${device.id}`);
+          
+          this.discoveredNodes.next({
+            id: device.id,
+            publicKey: device.name || 'Anonymous Gorakh Node', 
+            rssi: device.rssi
+          });
+        }
       }
-      
-      if (device) {
-        // Emit through RxJS so RadarScreen can visibly update in real time!
-        this.discoveredNodes.next({
-          id: device.id,
-          publicKey: device.name || 'Unknown Signal',
-          rssi: device.rssi
-        });
-      }
-    });
+    );
   }
 
   private startAdvertising() {
