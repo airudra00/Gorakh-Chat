@@ -1,48 +1,70 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Animated, Easing } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Animated, Easing, Dimensions } from 'react-native';
 import ConnectionManager, { MeshNode } from '../core/mesh/ConnectionManager';
 
+const { width } = Dimensions.get('window');
+const RADAR_SIZE = width * 0.85;
+const CENTER = RADAR_SIZE / 2;
+
+export interface RadarNode extends MeshNode {
+  angle: number;
+  distance: number;
+}
+
 export default function RadarScreen({ myIdentity, onChatPress }: { myIdentity: { publicKey: string }, onChatPress: (peer: MeshNode) => void }) {
-  const [nearbyUsers, setNearbyUsers] = useState<MeshNode[]>([]);
+  const [nearbyUsers, setNearbyUsers] = useState<RadarNode[]>([]);
   
-  // Animation Engine for the Radar Sweep
+  // High-Performance Engine
   const spinValue = useRef(new Animated.Value(0)).current;
   const pulseValue = useRef(new Animated.Value(1)).current;
 
+  // Blinks the dots smoothly
+  const blinkValue = useRef(new Animated.Value(1)).current;
+
   useEffect(() => {
-    // 1. Kick off the visual radar sweeping animations natively
+    // 1. Visually aggressively sweeping radar blade natively
     Animated.loop(
       Animated.timing(spinValue, {
         toValue: 1,
-        duration: 2000,
+        duration: 3500, // slower, realistic military rotation
         easing: Easing.linear,
         useNativeDriver: true,
       })
     ).start();
 
+    // 2. Subtle center sonar pulse
     Animated.loop(
       Animated.sequence([
-        Animated.timing(pulseValue, { toValue: 1.2, duration: 800, useNativeDriver: true }),
-        Animated.timing(pulseValue, { toValue: 1.0, duration: 800, useNativeDriver: true })
+        Animated.timing(pulseValue, { toValue: 1.1, duration: 1500, useNativeDriver: true }),
+        Animated.timing(pulseValue, { toValue: 1.0, duration: 1500, useNativeDriver: true })
       ])
     ).start();
 
-    // 2. Hook directly into the LIVE Android/iOS Bluetooth Hardware Radio Stream!
-    console.log("[Radar UI] Listening to live hardware stream...");
-    
+    // 3. Blinking targeting reticles
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(blinkValue, { toValue: 0.2, duration: 400, useNativeDriver: true }),
+        Animated.timing(blinkValue, { toValue: 1.0, duration: 400, useNativeDriver: true })
+      ])
+    ).start();
+
+    // Hook directly into the LIVE Bluetooth / Wi-Fi Streams
     const subscription = ConnectionManager.discoveredNodes.subscribe((device) => {
       setNearbyUsers((prev) => {
-        // Prevent duplicates in the UI
+        // Prevent duplicate ghost devices
         const exists = prev.find(d => d.id === device.id);
         if (exists) return prev;
         
-        return [...prev, device];
+        console.log(`[Radar UI] Target acquired: ${device.id}`);
+        // Physically position the blip realistically around you
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 0.15 + (Math.random() * 0.75); // Avoid center and edges
+        
+        return [...prev, { ...device, angle, distance }];
       });
     });
 
-    return () => {
-      subscription.unsubscribe();
-    };
+    return () => subscription.unsubscribe();
   }, []);
 
   const spin = spinValue.interpolate({
@@ -52,38 +74,76 @@ export default function RadarScreen({ myIdentity, onChatPress }: { myIdentity: {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.headerTitle}>Gorakh Chat</Text>
-      <Text style={styles.subtext}>Your ID: {myIdentity.publicKey.substring(0, 16)}...</Text>
+      <View style={styles.headerPlate}>
+        <Text style={styles.systemStatus}>GORAKH AIRSPACE ONLINE</Text>
+        <Text style={styles.headerTitle}>TACTICAL RADAR</Text>
+        <Text style={styles.subtext}>AWAITING HANDSHAKE | YOUR KEY: {myIdentity.publicKey.substring(0, 16)}...</Text>
+      </View>
       
-      {/* Dynamic Animated Sweeping Radar */}
+      {/* ==================================
+          THE PHYSICAL RADAR ENGINE 
+          ================================== */}
       <View style={styles.radarContainer}>
         <View style={styles.radarOrb}>
-          <Animated.View style={[styles.radarPulse, { transform: [{ scale: pulseValue }] }]} />
           
-          {/* Sweeper Line */}
+          {/* Sonar Rings */}
+          <Animated.View style={[styles.ring1, { transform: [{ scale: pulseValue }] }]} />
+          <View style={styles.ring2} />
+          <View style={styles.ring3} />
+          
+          {/* Military Crosshairs */}
+          <View style={styles.crosshairVertical} />
+          <View style={styles.crosshairHorizontal} />
+
+          {/* Sweeper Tactical Blade */}
           <Animated.View style={[styles.sweeper, { transform: [{ rotate: spin }] }]}>
             <View style={styles.sweeperLine} />
+            <View style={styles.sweeperBeam} />
           </Animated.View>
+
+          {/* Intercepted Target Blips */}
+          {nearbyUsers.map(user => {
+            // Plot hardware coordinates
+            const maxRadius = RADAR_SIZE / 2;
+            const cx = (Math.cos(user.angle) * user.distance * maxRadius);
+            const cy = (Math.sin(user.angle) * user.distance * maxRadius); 
+            return (
+              <Animated.View 
+                key={user.id} 
+                style={[
+                  styles.blip, 
+                  { 
+                    transform: [{ translateX: cx }, { translateY: cy }],
+                    opacity: blinkValue 
+                  }
+                ]} 
+              />
+            )
+          })}
         </View>
       </View>
 
-      <Text style={styles.foundText}>
-        {nearbyUsers.length === 0 ? "Scanning airspace offline..." : `Intercepted ${nearbyUsers.length} Devices!`}
-      </Text>
-
-      <ScrollView style={styles.list}>
-        {nearbyUsers.map(user => (
-          <TouchableOpacity key={user.id} style={styles.glassCard}>
-            <View>
-              <Text style={styles.userName}>{user.publicKey || 'Encrypted Node'}</Text>
-              <Text style={styles.userInfo}>MAC: {user.id} | Signal RSSI: {user.rssi}</Text>
-            </View>
-            <TouchableOpacity style={styles.chatButton} onPress={() => onChatPress(user)}>
-              <Text style={styles.chatBtnText}>Chat</Text>
+      <View style={styles.intelContainer}>
+        <Text style={styles.foundText}>
+          {nearbyUsers.length === 0 ? "SCANNING SECTORS..." : `[WARNING] ${nearbyUsers.length} TARGETS ACQUIRED!`}
+        </Text>
+        
+        <ScrollView style={styles.list}>
+          {nearbyUsers.map(user => (
+            <TouchableOpacity key={user.id} style={styles.glassCard} onPress={() => onChatPress(user)}>
+              <View>
+                <Text style={styles.targetLabel}>TARGET LOCK: ACQUIRED</Text>
+                <Text style={styles.userName}>{user.publicKey || 'ANONYMOUS SIGINT'}</Text>
+                <Text style={styles.userInfo}>MAC IDENT: {user.id}</Text>
+                <Text style={styles.userRssi}>SIGNAL STRENGTH: {user.rssi || '-99'} dBm</Text>
+              </View>
+              <View style={styles.chatButton}>
+                <Text style={styles.chatBtnText}>ENGAGE</Text>
+              </View>
             </TouchableOpacity>
-          </TouchableOpacity>
-        ))}
-      </ScrollView>
+          ))}
+        </ScrollView>
+      </View>
     </View>
   );
 }
@@ -91,113 +151,195 @@ export default function RadarScreen({ myIdentity, onChatPress }: { myIdentity: {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#020617', // Extremely deep black/green base
+    backgroundColor: '#040B07', // Very dark tactical gray-green
     alignItems: 'center',
+    paddingTop: 30
+  },
+  headerPlate: {
+    width: '100%',
+    paddingHorizontal: 20,
+    marginBottom: 20,
+    marginTop: 20
+  },
+  systemStatus: {
+    color: '#39FF14',
+    fontSize: 10,
+    letterSpacing: 3,
+    fontWeight: 'bold'
   },
   headerTitle: {
-    color: '#22C55E', // Neon hacker green
-    fontSize: 28,
+    color: '#F4F4F5',
+    fontSize: 32,
     fontWeight: '900',
-    marginTop: 20,
-    letterSpacing: 1
+    marginTop: 2,
+    letterSpacing: 2
   },
   subtext: {
-    color: '#3F6212',
-    fontSize: 12,
+    color: '#4ADE80',
+    fontSize: 10,
     marginTop: 5,
-    marginBottom: 30
+    letterSpacing: 1
   },
   radarContainer: {
-    position: 'relative',
     justifyContent: 'center',
     alignItems: 'center',
-    width: 200,
-    height: 200,
-    marginBottom: 30
+    width: RADAR_SIZE,
+    height: RADAR_SIZE,
+    marginVertical: 15
   },
   radarOrb: {
-    width: 180,
-    height: 180,
-    borderRadius: 90,
-    backgroundColor: 'rgba(34, 197, 94, 0.05)',
-    borderWidth: 1,
-    borderColor: 'rgba(34, 197, 94, 0.3)',
+    width: RADAR_SIZE,
+    height: RADAR_SIZE,
+    borderRadius: RADAR_SIZE / 2,
+    backgroundColor: '#05180D', // darker green core
+    borderColor: '#39FF14',
+    borderWidth: 2,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#22C55E',
+    overflow: 'hidden',
+    shadowColor: '#39FF14',
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.6,
-    shadowRadius: 25,
-    elevation: 15,
+    shadowOpacity: 0.8,
+    shadowRadius: 30,
+    elevation: 20,
   },
-  radarPulse: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    backgroundColor: 'rgba(34, 197, 94, 0.5)',
+  ring1: {
+    position: 'absolute',
+    width: RADAR_SIZE * 0.7,
+    height: RADAR_SIZE * 0.7,
+    borderRadius: RADAR_SIZE,
+    borderWidth: 1.5,
+    borderColor: 'rgba(57, 255, 20, 0.4)',
+  },
+  ring2: {
+    position: 'absolute',
+    width: RADAR_SIZE * 0.4,
+    height: RADAR_SIZE * 0.4,
+    borderRadius: RADAR_SIZE,
+    borderWidth: 1,
+    borderColor: 'rgba(57, 255, 20, 0.3)',
+  },
+  ring3: {
+    position: 'absolute',
+    width: RADAR_SIZE * 0.1,
+    height: RADAR_SIZE * 0.1,
+    borderRadius: RADAR_SIZE,
+    borderWidth: 1,
+    borderColor: 'rgba(57, 255, 20, 0.6)',
+    backgroundColor: '#39FF14', // The eye
+  },
+  crosshairVertical: {
+    position: 'absolute',
+    height: RADAR_SIZE,
+    width: 1.5,
+    backgroundColor: 'rgba(57, 255, 20, 0.5)',
+  },
+  crosshairHorizontal: {
+    position: 'absolute',
+    width: RADAR_SIZE,
+    height: 1.5,
+    backgroundColor: 'rgba(57, 255, 20, 0.5)',
   },
   sweeper: {
     position: 'absolute',
-    width: 180,
-    height: 180,
-    justifyContent: 'center',
+    width: RADAR_SIZE,
+    height: RADAR_SIZE,
     alignItems: 'center',
+    justifyContent: 'flex-start',
   },
   sweeperLine: {
+    width: 3,
+    height: RADAR_SIZE / 2,
+    backgroundColor: '#39FF14',
+    shadowColor: '#39FF14',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 1,
+    shadowRadius: 10,
+  },
+  sweeperBeam: {
     position: 'absolute',
-    top: 90,
-    right: 0,
-    width: 90,
-    height: 2,
-    backgroundColor: 'rgba(34, 197, 94, 0.8)',
-    transform: [{ translateY: -1 }],
+    width: RADAR_SIZE / 2,
+    height: RADAR_SIZE / 2,
+    backgroundColor: 'rgba(57, 255, 20, 0.1)',
+    top: 0,
+    right: RADAR_SIZE / 2,
+    borderTopLeftRadius: RADAR_SIZE,
+  },
+  blip: {
+    position: 'absolute',
+    width: 10,
+    height: 10,
+    backgroundColor: '#FFF', // blinding white-hot target
+    borderRadius: 5,
+    shadowColor: '#FFF',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 1,
+    shadowRadius: 15,
+  },
+  intelContainer: {
+    flex: 1,
+    width: '100%',
+    paddingHorizontal: 20,
+    marginTop: 10
   },
   foundText: {
-    color: '#4ADE80',
-    marginBottom: 20,
-    fontSize: 14,
-    fontWeight: '700',
-    letterSpacing: 0.5
+    color: '#39FF14',
+    fontSize: 12,
+    fontWeight: 'bold',
+    letterSpacing: 2,
+    marginBottom: 10,
+    textAlign: 'center'
   },
   list: {
     flex: 1,
-    width: '100%'
   },
   glassCard: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 15,
-    borderRadius: 16,
-    backgroundColor: 'rgba(34, 197, 94, 0.08)',
+    backgroundColor: 'rgba(57, 255, 20, 0.05)',
     borderWidth: 1,
-    borderColor: 'rgba(34, 197, 94, 0.2)',
-    marginBottom: 15
+    borderColor: 'rgba(57, 255, 20, 0.4)',
+    padding: 18,
+    borderRadius: 8,
+    marginBottom: 12,
+  },
+  targetLabel: {
+    color: '#ef4444',
+    fontSize: 9,
+    fontWeight: 'bold',
+    letterSpacing: 1.5,
+    marginBottom: 4
   },
   userName: {
-    color: '#F0FDF4',
+    color: '#FFF',
+    fontWeight: '900',
     fontSize: 16,
-    fontWeight: 'bold'
+    letterSpacing: 1,
   },
   userInfo: {
-    color: '#86EFAC',
-    fontSize: 12,
-    marginTop: 4
+    color: '#4ADE80',
+    fontSize: 10,
+    marginTop: 4,
+  },
+  userRssi: {
+    color: '#39FF14',
+    fontSize: 9,
+    marginTop: 2,
   },
   chatButton: {
-    backgroundColor: '#22C55E',
-    paddingHorizontal: 16,
+    backgroundColor: '#39FF14',
     paddingVertical: 10,
-    borderRadius: 20,
-    shadowColor: '#22C55E',
-    shadowOpacity: 0.4,
-    shadowRadius: 8,
-    elevation: 5
+    paddingHorizontal: 16,
+    borderRadius: 4,
+    shadowColor: '#39FF14',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.8,
+    shadowRadius: 10,
   },
   chatBtnText: {
-    color: '#022C22',
-    fontWeight: '900',
-    fontSize: 14
+    color: '#000',
+    fontWeight: 'bold',
+    letterSpacing: 1
   }
 });
