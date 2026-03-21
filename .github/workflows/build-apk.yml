@@ -34,11 +34,24 @@ jobs:
       - name: Generating Native Android Folders
         run: npx expo prebuild --platform android --clean
 
+      - name: Patch Native Build Collisions
+        run: |
+          echo "Patching build.gradle to ignore duplicate C++ bridges..."
+          sed -i -e '/android {/a \
+              packagingOptions { \
+                  pickFirst "lib/x86/libc++_shared.so" \
+                  pickFirst "lib/x86_64/libc++_shared.so" \
+                  pickFirst "lib/armeabi-v7a/libc++_shared.so" \
+                  pickFirst "lib/arm64-v8a/libc++_shared.so" \
+              }' android/app/build.gradle
+
       - name: Compile APK via Android Gradle
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
         run: |
           cd android
           chmod +x gradlew
-          ./gradlew assembleRelease
+          ./gradlew assembleRelease -Dorg.gradle.jvmargs="-Xmx3g" --no-daemon
 
       - name: Upload Android APK
         uses: actions/upload-artifact@v4
