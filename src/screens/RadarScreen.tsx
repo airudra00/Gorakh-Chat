@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Animated, Easing } from 'react-native';
 import ConnectionManager, { MeshNode } from '../core/mesh/ConnectionManager';
 
-export default function RadarScreen({ myIdentity }: { myIdentity: { publicKey: string } }) {
+export default function RadarScreen({ myIdentity, onChatPress }: { myIdentity: { publicKey: string }, onChatPress: (peer: MeshNode) => void }) {
   const [nearbyUsers, setNearbyUsers] = useState<MeshNode[]>([]);
   
   // Animation Engine for the Radar Sweep
@@ -78,7 +78,7 @@ export default function RadarScreen({ myIdentity }: { myIdentity: { publicKey: s
               <Text style={styles.userName}>{user.publicKey || 'Encrypted Node'}</Text>
               <Text style={styles.userInfo}>MAC: {user.id} | Signal RSSI: {user.rssi}</Text>
             </View>
-            <TouchableOpacity style={styles.chatButton}>
+            <TouchableOpacity style={styles.chatButton} onPress={() => onChatPress(user)}>
               <Text style={styles.chatBtnText}>Chat</Text>
             </TouchableOpacity>
           </TouchableOpacity>

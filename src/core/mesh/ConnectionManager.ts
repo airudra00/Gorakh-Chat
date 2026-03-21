@@ -105,6 +105,15 @@ class ConnectionManager {
     // 📡 Broadcasting logic goes here (requires react-native-ble-peripheral or custom Java)
     console.log('[Mesh] 📡 (Advertising Identity to nearby hardware)');
   }
+
+  // ===================================
+  // MESSAGE TRANSMISSION PROTOCOL
+  // ===================================
+  public async sendMessage(peerId: string, encryptedPayload: string): Promise<boolean> {
+    console.log(`[Mesh.Transmitter] 🚀 Firing encrypted payload to MAC: ${peerId}`);
+    // Simulated: Here we would use react-native-ble-plx to write a characteristic to the peer!
+    return true; // Assume success for now
+  }
 }
 
 export default new ConnectionManager();

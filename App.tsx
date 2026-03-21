@@ -4,10 +4,13 @@ import { StyleSheet, View, Text, TouchableOpacity, SafeAreaView, StatusBar } fro
 // Reanimated & Lottie could be used for advanced mesh UI animations here
 import E2EEProtocol from './src/core/crypto/E2EEProtocol';
 import ConnectionManager from './src/core/mesh/ConnectionManager';
+import { MeshNode } from './src/core/mesh/ConnectionManager';
 import RadarScreen from './src/screens/RadarScreen';
+import ChatScreen from './src/screens/ChatScreen';
 
 export default function App() {
   const [keys, setKeys] = useState<{ publicKey: string; privateKey: string } | null>(null);
+  const [activeChat, setActiveChat] = useState<MeshNode | null>(null);
 
   // 1. Initialize E2EE Identity on app load
   useEffect(() => {
@@ -29,17 +32,16 @@ export default function App() {
     );
   }
 
+  // Conditional Navigation: Fast, native, no deep libraries needed.
+  if (activeChat) {
+    return <ChatScreen peer={activeChat} goBack={() => setActiveChat(null)} myIdentity={keys} />;
+  }
+
   // Pass our generated Identity down to the Mesh Network UI
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" />
-      
-      {/* 
-        The 'Radar UI' is the core of an offline mesh app. 
-        It shows who is nearby within Bluetooth/WiFi range. 
-      */}
-      <RadarScreen myIdentity={keys} />
-
+      <RadarScreen myIdentity={keys} onChatPress={(peer) => setActiveChat(peer)} />
     </SafeAreaView>
   );
 }
