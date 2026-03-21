@@ -8,6 +8,9 @@
     "android": {
       "package": "com.airudra00.gorakhchat"
     },
+    "splash": {
+      "backgroundColor": "#0F172A"
+    },
     "plugins": [
       "@morrowdigital/watermelondb-expo-plugin"
     ]
