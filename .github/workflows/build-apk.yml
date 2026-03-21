@@ -36,13 +36,10 @@ jobs:
 
       - name: Patch Native Build Collisions
         run: |
-          echo "Patching build.gradle to ignore duplicate C++ bridges..."
+          echo "Patching build.gradle to universally ignore duplicate C++ bridges..."
           sed -i -e '/android {/a \
               packagingOptions { \
-                  pickFirst "lib/x86/libc++_shared.so" \
-                  pickFirst "lib/x86_64/libc++_shared.so" \
-                  pickFirst "lib/armeabi-v7a/libc++_shared.so" \
-                  pickFirst "lib/arm64-v8a/libc++_shared.so" \
+                  pickFirst "**/*.so" \
               }' android/app/build.gradle
 
       - name: Compile APK via Android Gradle
@@ -51,7 +48,7 @@ jobs:
         run: |
           cd android
           chmod +x gradlew
-          ./gradlew assembleRelease -Dorg.gradle.jvmargs="-Xmx3g" --no-daemon
+          ./gradlew assembleRelease --info --stacktrace -Dorg.gradle.jvmargs="-Xmx3g" --no-daemon
 
       - name: Upload Android APK
         uses: actions/upload-artifact@v4
@@ -59,3 +56,13 @@ jobs:
           name: GorakhChat-APK
           path: android/app/build/outputs/apk/release/app-release.apk
           retention-days: 7
+
+      - name: Upload Build Reports (If Failed)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Gradle-Error-Logs
+          path: |
+            android/app/build/reports/
+            android/build/outputs/
+          retention-days: 3
