@@ -24,7 +24,7 @@
     "plugins": [
       "@morrowdigital/watermelondb-expo-plugin",
       [
-        "@config-plugins/react-native-ble-plx",
+        "react-native-ble-plx",
         {
           "isBackgroundEnabled": true,
           "modes": ["peripheral", "central"],
