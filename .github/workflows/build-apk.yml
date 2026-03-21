@@ -8,7 +8,7 @@ on:
 
 jobs:
   build_apk:
-    name: Build APK from scratch without Local Node
+    name: Build APK directly from Repo
     runs-on: ubuntu-latest
     
     steps:
@@ -26,28 +26,17 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Scaffold React Native App in Cloud
+      - name: Install Dependencies
         run: |
-          echo "Initializing fresh Expo app in Cloud Server..."
-          npx -y create-expo-app@latest CloudApp --template blank-typescript
-          
-          echo "Merging our Custom Logic (Mesh, E2EE, Radar UI)..."
-          cp -r src CloudApp/
-          cp -f App.tsx CloudApp/
-          cp -f babel.config.js CloudApp/
-          
-          cd CloudApp
-          
-          echo "Installing Dependencies (WatermelonDB, TweetNaCl, Polyfills)..."
-          npm install react-native-reanimated tweetnacl tweetnacl-util @nozbe/watermelondb react-native-permissions lottie-react-native react-native-get-random-values
-          npm install -D @babel/plugin-proposal-decorators
-          
-          echo "Generating Native Android Folders..."
-          npx expo prebuild --platform android --clean
+          npm install @morrowdigital/watermelondb-expo-plugin
+          npm install
+
+      - name: Generating Native Android Folders
+        run: npx expo prebuild --platform android --clean
 
       - name: Compile APK via Android Gradle
         run: |
-          cd CloudApp/android
+          cd android
           chmod +x gradlew
           ./gradlew assembleRelease
 
@@ -55,5 +44,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: GorakhChat-APK
-          path: CloudApp/android/app/build/outputs/apk/release/app-release.apk
+          path: android/app/build/outputs/apk/release/app-release.apk
           retention-days: 7
