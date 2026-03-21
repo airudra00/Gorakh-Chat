@@ -2,19 +2,27 @@ import { Platform, PermissionsAndroid } from 'react-native';
 import * as Device from 'expo-device';
 import { BleManager, ScanMode } from 'react-native-ble-plx';
 import { Subject } from 'rxjs';
+import { encodeBase64, decodeUTF8 } from '../crypto/E2EEProtocol';
 
 const GORAKH_CHAT_UUID = '00006084-0000-1000-8000-00805F9B34FB';
+const GORAKH_WRITE_UUID = '00006085-0000-1000-8000-00805F9B34FB';
 
 export interface MeshNode {
-  id: string;   // Hardware Mac Address / Local ID
-  publicKey: string | null; // Gorakh Identity
-  rssi: number | null; // Signal Strength
+  id: string; // The MAC Address
+  publicKey: string | null;
+  rssi: number | null;
+}
+
+export interface IncomingMessage {
+  peerId: string;
+  payload: string;
 }
 
 class ConnectionManager {
   private isInitialized = false;
   private manager: BleManager | null = null;
   public discoveredNodes = new Subject<MeshNode>();
+  public incomingMessages = new Subject<IncomingMessage>();
 
   public async initializeMesh(): Promise<boolean> {
     if (this.isInitialized) return true;
@@ -128,10 +136,39 @@ class ConnectionManager {
   // ===================================
   // MESSAGE TRANSMISSION PROTOCOL
   // ===================================
-  public async sendMessage(peerId: string, encryptedPayload: string): Promise<boolean> {
-    console.log(`[Mesh.Transmitter] 🚀 Firing encrypted payload to MAC: ${peerId}`);
-    // Simulated: Here we would use react-native-ble-plx to write a characteristic to the peer!
-    return true; // Assume success for now
+  public async sendMessage(peerId: string, payload: string): Promise<boolean> {
+    console.log(`[Mesh.Transmitter] 🚀 Initiating Hardware Handshake with MAC: ${peerId}`);
+    try {
+      // 1. Physically connect to the other phone's Bluetooth chip
+      const device = await this.manager.connectToDevice(peerId);
+      
+      // 2. Map their internal GATT server to find the Gorakh Chat Service
+      await device.discoverAllServicesAndCharacteristics();
+      
+      // 3. Convert our text payload into a raw Base64 physical byte stream
+      // We use our pure mathematical custom Base64 encoder to avoid NodeJS crashes tracking arrays
+      const base64Data = encodeBase64(decodeUTF8(payload));
+      
+      // 4. Force-Write the payload directly into the other phone's memory chip
+      await this.manager.writeCharacteristicWithResponseForDevice(
+        peerId,
+        GORAKH_CHAT_UUID,
+        GORAKH_WRITE_UUID,
+        base64Data
+      );
+
+      console.log(`[Mesh.Transmitter] ✅ Payload successfully delivered to ${peerId}`);
+      
+      // Disconnect smoothly to save battery and open the slot for others
+      await this.manager.cancelDeviceConnection(peerId);
+      return true;
+
+    } catch (error) {
+      console.error(`[Mesh.Transmitter] 🚨 Delivery Failed to ${peerId}:`, error);
+      // Failsafe disconnect
+      this.manager.cancelDeviceConnection(peerId).catch(() => {});
+      return false;
+    }
   }
 }
 
