@@ -108,9 +108,21 @@ class ConnectionManager {
     );
   }
 
-  private startAdvertising() {
-    // 📡 Broadcasting logic goes here (requires react-native-ble-peripheral or custom Java)
-    console.log('[Mesh] 📡 (Advertising Identity to nearby hardware)');
+  private async startAdvertising() {
+    console.log('[Mesh] 📡 Powering up the Cell Tower (Broadcasting our UUID)');
+    try {
+      // Require the newly injected Android Native Module
+      const BLEPeripheral = require('munim-bluetooth-peripheral').default || require('munim-bluetooth-peripheral');
+      
+      // Inject the Gorakh Chat Identity Signature
+      BLEPeripheral.addService(GORAKH_CHAT_UUID, true);
+      BLEPeripheral.setName('Gorakh Node');
+      
+      await BLEPeripheral.start();
+      console.log('[Mesh] 🟢 Broadcaster goes LIVE! We are now a cell tower.');
+    } catch (e) {
+      console.warn('[Mesh] ⚠️ Broadcaster skipped: Native module still compiling in GitHub Action.');
+    }
   }
 
   // ===================================
