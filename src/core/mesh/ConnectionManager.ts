@@ -3,6 +3,7 @@ import * as Device from 'expo-device';
 import { BleManager, ScanMode } from 'react-native-ble-plx';
 import { Subject } from 'rxjs';
 import { encodeBase64, decodeUTF8 } from '../crypto/E2EEProtocol';
+import WiFiDirectManager from './WiFiDirectManager';
 
 const GORAKH_CHAT_UUID = '00006084-0000-1000-8000-00805F9B34FB';
 const GORAKH_WRITE_UUID = '00006085-0000-1000-8000-00805F9B34FB';
@@ -60,6 +61,10 @@ class ConnectionManager {
     }, true); // `true` fires it immediately with the current state too
 
     this.startAdvertising(); // Note: Emitting requires peripheral bridge integration 
+
+    // Synchronize the Heavy-Duty Wi-Fi Direct Engine!
+    await WiFiDirectManager.initializeWiFiEngine();
+    await WiFiDirectManager.blastFrequencies();
 
     this.isInitialized = true;
     return true;

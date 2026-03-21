@@ -9,13 +9,15 @@
       "package": "com.airudra00.gorakhchat",
       "permissions": [
         "BLUETOOTH",
-        "BLUETOOTH_ADMIN",
-        "BLUETOOTH_ADVERTISE",
-        "BLUETOOTH_CONNECT",
         "BLUETOOTH_SCAN",
+        "BLUETOOTH_CONNECT",
+        "BLUETOOTH_ADVERTISE",
         "ACCESS_COARSE_LOCATION",
         "ACCESS_FINE_LOCATION",
-        "NEARBY_WIFI_DEVICES"
+        "NEARBY_WIFI_DEVICES",
+        "ACCESS_WIFI_STATE",
+        "CHANGE_WIFI_STATE",
+        "INTERNET"
       ]
     },
     "splash": {
