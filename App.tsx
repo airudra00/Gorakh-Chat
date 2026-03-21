@@ -8,6 +8,9 @@ import { MeshNode } from './src/core/mesh/ConnectionManager';
 import RadarScreen from './src/screens/RadarScreen';
 import ChatScreen from './src/screens/ChatScreen';
 
+import { DatabaseProvider } from '@nozbe/watermelondb/DatabaseProvider';
+import database from './src/db/index';
+
 export default function App() {
   const [keys, setKeys] = useState<{ publicKey: string; privateKey: string } | null>(null);
   const [activeChat, setActiveChat] = useState<MeshNode | null>(null);
@@ -34,15 +37,21 @@ export default function App() {
 
   // Conditional Navigation: Fast, native, no deep libraries needed.
   if (activeChat) {
-    return <ChatScreen peer={activeChat} goBack={() => setActiveChat(null)} myIdentity={keys} />;
+    return (
+      <DatabaseProvider database={database}>
+        <ChatScreen peer={activeChat} goBack={() => setActiveChat(null)} myIdentity={keys} />
+      </DatabaseProvider>
+    );
   }
 
   // Pass our generated Identity down to the Mesh Network UI
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" />
-      <RadarScreen myIdentity={keys} onChatPress={(peer) => setActiveChat(peer)} />
-    </SafeAreaView>
+    <DatabaseProvider database={database}>
+      <SafeAreaView style={styles.container}>
+        <StatusBar barStyle="light-content" />
+        <RadarScreen myIdentity={keys} onChatPress={(peer) => setActiveChat(peer)} />
+      </SafeAreaView>
+    </DatabaseProvider>
   );
 }
 
