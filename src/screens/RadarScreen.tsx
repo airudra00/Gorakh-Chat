@@ -1,35 +1,82 @@
-import React from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Animated, Easing } from 'react-native';
+import ConnectionManager, { MeshNode } from '../core/mesh/ConnectionManager';
 
 export default function RadarScreen({ myIdentity }: { myIdentity: { publicKey: string } }) {
-  // Temporary mock data to simulate Mesh Network discovery
-  const mockNearbyUsers = [
-    { id: 'usr-1', name: 'Alina (BLE)', distance: '10m', signal: 'Strong', battery: '80%' },
-    { id: 'usr-2', name: 'Ramesh (Wi-Fi Direct)', distance: '45m', signal: 'Medium', battery: '50%' },
-    { id: 'usr-3', name: 'Unknown Device', distance: '150m (Hop)', signal: 'Weak', battery: '??' }
-  ];
+  const [nearbyUsers, setNearbyUsers] = useState<MeshNode[]>([]);
+  
+  // Animation Engine for the Radar Sweep
+  const spinValue = useRef(new Animated.Value(0)).current;
+  const pulseValue = useRef(new Animated.Value(1)).current;
+
+  useEffect(() => {
+    // 1. Kick off the visual radar sweeping animations natively
+    Animated.loop(
+      Animated.timing(spinValue, {
+        toValue: 1,
+        duration: 2000,
+        easing: Easing.linear,
+        useNativeDriver: true,
+      })
+    ).start();
+
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(pulseValue, { toValue: 1.2, duration: 800, useNativeDriver: true }),
+        Animated.timing(pulseValue, { toValue: 1.0, duration: 800, useNativeDriver: true })
+      ])
+    ).start();
+
+    // 2. Hook directly into the LIVE Android/iOS Bluetooth Hardware Radio Stream!
+    console.log("[Radar UI] Listening to live hardware stream...");
+    
+    const subscription = ConnectionManager.discoveredNodes.subscribe((device) => {
+      setNearbyUsers((prev) => {
+        // Prevent duplicates in the UI
+        const exists = prev.find(d => d.id === device.id);
+        if (exists) return prev;
+        
+        return [...prev, device];
+      });
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
+
+  const spin = spinValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['0deg', '360deg']
+  });
 
   return (
     <View style={styles.container}>
       <Text style={styles.headerTitle}>Gorakh Chat</Text>
       <Text style={styles.subtext}>Your ID: {myIdentity.publicKey.substring(0, 16)}...</Text>
       
-      {/* 
-        This is where a Lottie animation of a sweeping radar would go.
-        For now, a glowing glassmorphism orb placeholder.
-      */}
-      <View style={styles.radarOrb}>
-        <View style={styles.radarPulse} />
+      {/* Dynamic Animated Sweeping Radar */}
+      <View style={styles.radarContainer}>
+        <View style={styles.radarOrb}>
+          <Animated.View style={[styles.radarPulse, { transform: [{ scale: pulseValue }] }]} />
+          
+          {/* Sweeper Line */}
+          <Animated.View style={[styles.sweeper, { transform: [{ rotate: spin }] }]}>
+            <View style={styles.sweeperLine} />
+          </Animated.View>
+        </View>
       </View>
 
-      <Text style={styles.foundText}>Scanning for devices offline...</Text>
+      <Text style={styles.foundText}>
+        {nearbyUsers.length === 0 ? "Scanning airspace offline..." : `Intercepted ${nearbyUsers.length} Devices!`}
+      </Text>
 
       <ScrollView style={styles.list}>
-        {mockNearbyUsers.map(user => (
+        {nearbyUsers.map(user => (
           <TouchableOpacity key={user.id} style={styles.glassCard}>
             <View>
-              <Text style={styles.userName}>{user.name}</Text>
-              <Text style={styles.userInfo}>Distance: {user.distance} | {user.signal}</Text>
+              <Text style={styles.userName}>{user.publicKey || 'Encrypted Node'}</Text>
+              <Text style={styles.userInfo}>MAC: {user.id} | Signal RSSI: {user.rssi}</Text>
             </View>
             <TouchableOpacity style={styles.chatButton}>
               <Text style={styles.chatBtnText}>Chat</Text>
@@ -61,10 +108,18 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginBottom: 30
   },
+  radarContainer: {
+    position: 'relative',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 200,
+    height: 200,
+    marginBottom: 30
+  },
   radarOrb: {
-    width: 150,
-    height: 150,
-    borderRadius: 75,
+    width: 180,
+    height: 180,
+    borderRadius: 90,
     backgroundColor: 'rgba(34, 197, 94, 0.05)',
     borderWidth: 1,
     borderColor: 'rgba(34, 197, 94, 0.3)',
@@ -75,13 +130,28 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.6,
     shadowRadius: 25,
     elevation: 15,
-    marginBottom: 30
   },
   radarPulse: {
     width: 60,
     height: 60,
     borderRadius: 30,
-    backgroundColor: 'rgba(34, 197, 94, 0.7)',
+    backgroundColor: 'rgba(34, 197, 94, 0.5)',
+  },
+  sweeper: {
+    position: 'absolute',
+    width: 180,
+    height: 180,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  sweeperLine: {
+    position: 'absolute',
+    top: 90,
+    right: 0,
+    width: 90,
+    height: 2,
+    backgroundColor: 'rgba(34, 197, 94, 0.8)',
+    transform: [{ translateY: -1 }],
   },
   foundText: {
     color: '#4ADE80',
