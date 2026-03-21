@@ -22,7 +22,15 @@
       "backgroundColor": "#0F172A"
     },
     "plugins": [
-      "@morrowdigital/watermelondb-expo-plugin"
+      "@morrowdigital/watermelondb-expo-plugin",
+      [
+        "@config-plugins/react-native-ble-plx",
+        {
+          "isBackgroundEnabled": true,
+          "modes": ["peripheral", "central"],
+          "bluetoothAlwaysPermission": "Allow Gorakh Chat to find nearby users offline."
+        }
+      ]
     ]
   }
 }
