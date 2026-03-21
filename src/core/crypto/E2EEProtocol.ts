@@ -13,7 +13,7 @@ const b64chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
 const b64lookup = new Uint8Array(256);
 for (let i = 0; i < b64chars.length; i++) b64lookup[b64chars.charCodeAt(i)] = i;
 
-const encodeBase64 = (array: Uint8Array): string => {
+export const encodeBase64 = (array: Uint8Array): string => {
   let base64 = '';
   const len = array.length;
   for (let i = 0; i < len; i += 3) {
@@ -30,7 +30,7 @@ const encodeBase64 = (array: Uint8Array): string => {
   return base64;
 };
 
-const decodeBase64 = (base64: string): Uint8Array => {
+export const decodeBase64 = (base64: string): Uint8Array => {
   let bufferLength = base64.length * 0.75;
   let len = base64.length;
   let i;
@@ -54,11 +54,11 @@ const decodeBase64 = (base64: string): Uint8Array => {
   return bytes;
 };
 
-const encodeUTF8 = (arr: Uint8Array): string => {
+export const decodeUTF8 = (array: Uint8Array): string => {
   let s = '';
   // Convert 8-bit bytes to a JS string, then properly URI decode it to support emoji/unicode natively
-  for (let i = 0; i < arr.length; i++) {
-    s += String.fromCharCode(arr[i]);
+  for (let i = 0; i < array.length; i++) {
+    s += String.fromCharCode(array[i]);
   }
   try {
     return decodeURIComponent(escape(s));
@@ -67,12 +67,12 @@ const encodeUTF8 = (arr: Uint8Array): string => {
   }
 };
 
-const decodeUTF8 = (s: string): Uint8Array => {
+export const encodeUTF8 = (str: string): Uint8Array => {
   // Convert JS string containing emoji/unicode to properly sized 8-bit payload
-  s = unescape(encodeURIComponent(s));
-  const arr = new Uint8Array(s.length);
-  for (let i = 0; i < s.length; i++) {
-    arr[i] = s.charCodeAt(i);
+  str = unescape(encodeURIComponent(str));
+  const arr = new Uint8Array(str.length);
+  for (let i = 0; i < str.length; i++) {
+    arr[i] = str.charCodeAt(i);
   }
   return arr;
 };
