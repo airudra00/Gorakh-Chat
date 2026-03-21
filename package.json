@@ -23,7 +23,8 @@
     "react-native-ble-plx": "^3.1.2",
     "react-native-reanimated": "~3.6.2",
     "munim-bluetooth-peripheral": "*",
-    "react-native-wifi-p2p": "*"
+    "react-native-wifi-p2p": "*",
+    "expo-task-manager": "~11.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

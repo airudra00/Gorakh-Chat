@@ -4,6 +4,7 @@ import { BleManager, ScanMode } from 'react-native-ble-plx';
 import { Subject } from 'rxjs';
 import { encodeBase64, decodeUTF8 } from '../crypto/E2EEProtocol';
 import WiFiDirectManager from './WiFiDirectManager';
+import BackgroundSweeper from './BackgroundSweeper';
 
 const GORAKH_CHAT_UUID = '00006084-0000-1000-8000-00805F9B34FB';
 const GORAKH_WRITE_UUID = '00006085-0000-1000-8000-00805F9B34FB';
@@ -65,6 +66,9 @@ class ConnectionManager {
     // Synchronize the Heavy-Duty Wi-Fi Direct Engine!
     await WiFiDirectManager.initializeWiFiEngine();
     await WiFiDirectManager.blastFrequencies();
+
+    // Spawn the Unkillable Background Daemon Process
+    await BackgroundSweeper.engagePocketMode();
 
     this.isInitialized = true;
     return true;
