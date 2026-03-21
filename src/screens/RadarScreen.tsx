@@ -11,7 +11,7 @@ export default function RadarScreen({ myIdentity }: { myIdentity: { publicKey: s
 
   return (
     <View style={styles.container}>
-      <Text style={styles.headerTitle}>Nearby Mesh Radar</Text>
+      <Text style={styles.headerTitle}>Gorakh Chat</Text>
       <Text style={styles.subtext}>Your ID: {myIdentity.publicKey.substring(0, 16)}...</Text>
       
       {/* 
@@ -45,17 +45,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#0F172A', // Slate 900
+    backgroundColor: '#020617', // Extremely deep black/green base
     alignItems: 'center',
   },
   headerTitle: {
-    color: '#F8FAFC',
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginTop: 20
+    color: '#22C55E', // Neon hacker green
+    fontSize: 28,
+    fontWeight: '900',
+    marginTop: 20,
+    letterSpacing: 1
   },
   subtext: {
-    color: '#94A3B8',
+    color: '#3F6212',
     fontSize: 12,
     marginTop: 5,
     marginBottom: 30
@@ -64,29 +65,30 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     borderRadius: 75,
-    backgroundColor: 'rgba(56, 189, 248, 0.1)',
+    backgroundColor: 'rgba(34, 197, 94, 0.05)',
     borderWidth: 1,
-    borderColor: 'rgba(56, 189, 248, 0.3)',
+    borderColor: 'rgba(34, 197, 94, 0.3)',
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#38BDF8',
+    shadowColor: '#22C55E',
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.5,
-    shadowRadius: 20,
-    elevation: 10,
+    shadowOpacity: 0.6,
+    shadowRadius: 25,
+    elevation: 15,
     marginBottom: 30
   },
   radarPulse: {
     width: 60,
     height: 60,
     borderRadius: 30,
-    backgroundColor: 'rgba(56, 189, 248, 0.8)',
+    backgroundColor: 'rgba(34, 197, 94, 0.7)',
   },
   foundText: {
-    color: '#38BDF8',
+    color: '#4ADE80',
     marginBottom: 20,
     fontSize: 14,
-    fontWeight: '600'
+    fontWeight: '700',
+    letterSpacing: 0.5
   },
   list: {
     flex: 1,
@@ -97,30 +99,35 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 15,
-    borderRadius: 15,
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    borderRadius: 16,
+    backgroundColor: 'rgba(34, 197, 94, 0.08)',
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.1)',
+    borderColor: 'rgba(34, 197, 94, 0.2)',
     marginBottom: 15
   },
   userName: {
-    color: '#FFF',
+    color: '#F0FDF4',
     fontSize: 16,
-    fontWeight: '600'
+    fontWeight: 'bold'
   },
   userInfo: {
-    color: '#94A3B8',
+    color: '#86EFAC',
     fontSize: 12,
     marginTop: 4
   },
   chatButton: {
-    backgroundColor: '#38BDF8',
-    paddingHorizontal: 15,
-    paddingVertical: 8,
-    borderRadius: 20
+    backgroundColor: '#22C55E',
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    borderRadius: 20,
+    shadowColor: '#22C55E',
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
+    elevation: 5
   },
   chatBtnText: {
-    color: '#0F172A',
-    fontWeight: 'bold'
+    color: '#022C22',
+    fontWeight: '900',
+    fontSize: 14
   }
 });
