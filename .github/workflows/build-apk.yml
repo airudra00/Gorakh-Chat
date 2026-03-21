@@ -34,11 +34,13 @@ jobs:
           echo "Merging our Custom Logic (Mesh, E2EE, Radar UI)..."
           cp -r src CloudApp/
           cp -f App.tsx CloudApp/
+          cp -f babel.config.js CloudApp/
           
           cd CloudApp
           
-          echo "Installing Dependencies (WatermelonDB, TweetNaCl)..."
-          npm install react-native-reanimated tweetnacl tweetnacl-util @nozbe/watermelondb react-native-permissions lottie-react-native
+          echo "Installing Dependencies (WatermelonDB, TweetNaCl, Polyfills)..."
+          npm install react-native-reanimated tweetnacl tweetnacl-util @nozbe/watermelondb react-native-permissions lottie-react-native react-native-get-random-values
+          npm install -D @babel/plugin-proposal-decorators
           
           echo "Generating Native Android Folders..."
           npx expo prebuild --platform android --clean
