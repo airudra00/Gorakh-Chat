@@ -30,8 +30,7 @@
           "modes": ["peripheral", "central"],
           "bluetoothAlwaysPermission": "Allow Gorakh Chat to find nearby users offline."
         }
-      ],
-      "munim-bluetooth-peripheral"
+      ]
     ]
   }
 }
