@@ -6,7 +6,17 @@
     "orientation": "portrait",
     "userInterfaceStyle": "dark",
     "android": {
-      "package": "com.airudra00.gorakhchat"
+      "package": "com.airudra00.gorakhchat",
+      "permissions": [
+        "BLUETOOTH",
+        "BLUETOOTH_ADMIN",
+        "BLUETOOTH_ADVERTISE",
+        "BLUETOOTH_CONNECT",
+        "BLUETOOTH_SCAN",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "NEARBY_WIFI_DEVICES"
+      ]
     },
     "splash": {
       "backgroundColor": "#0F172A"

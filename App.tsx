@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, SafeAreaView, StatusBar } from 'react-native';
 // Reanimated & Lottie could be used for advanced mesh UI animations here
 import E2EEProtocol from './src/core/crypto/E2EEProtocol';
+import ConnectionManager from './src/core/mesh/ConnectionManager';
 import RadarScreen from './src/screens/RadarScreen';
 
 export default function App() {
@@ -16,7 +17,8 @@ export default function App() {
     setKeys(newIdentity);
     console.log("My Gorakh Chat Identity (Public Key):", newIdentity.publicKey);
 
-    // TODO: Initialize ConnectionManager to start BLE Advertising here
+    // Prompt the User to violently open up their Android Bluetooth radios
+    ConnectionManager.initializeMesh();
   }, []);
 
   if (!keys) {
