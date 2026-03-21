@@ -66,6 +66,16 @@ class ConnectionManager {
     await WiFiDirectManager.initializeWiFiEngine();
     await WiFiDirectManager.blastFrequencies();
 
+    // BRIDGE THE WI-FI DIRECT INTERCEPTOR DIRECTLY INTO THE TACTICAL RADAR
+    WiFiDirectManager.discoveredPeers.subscribe((wifiDevice) => {
+      console.log(`[Mesh.Matrix] ⚡ WI-FI DIRECT SECURED: ${wifiDevice.macAddress}`);
+      this.discoveredNodes.next({
+        id: wifiDevice.macAddress,
+        publicKey: `[WIFI-P2P] ${wifiDevice.deviceName}`,
+        rssi: -40 // Synthetic strong signal for Wi-Fi Direct
+      });
+    });
+
     this.isInitialized = true;
     return true;
   }
