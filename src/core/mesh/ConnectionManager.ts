@@ -139,10 +139,20 @@ class ConnectionManager {
       
       // Inject the Gorakh Chat Identity Signature
       BLEPeripheral.addService(GORAKH_CHAT_UUID, true);
+      
+      // Build the actual Mailbox / Write endpoint so other phones can shoot texts into our chip!
+      // 16 = Writable, 8 = Writable property
+      BLEPeripheral.addCharacteristicToService(
+        GORAKH_CHAT_UUID, 
+        GORAKH_WRITE_UUID, 
+        16, 
+        8
+      );
+
       BLEPeripheral.setName('Gorakh Node');
       
       await BLEPeripheral.start();
-      console.log('[Mesh] 🟢 Broadcaster goes LIVE! We are now a cell tower.');
+      console.log('[Mesh] 🟢 Bluetooth Broadcaster goes LIVE! We are now a cell tower.');
     } catch (e) {
       console.warn('[Mesh] ⚠️ Broadcaster skipped: Native module still compiling in GitHub Action.');
     }
